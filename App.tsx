@@ -17,57 +17,51 @@ function App(): JSX.Element {
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    // Hiển thị thông tin đăng nhập
     Alert.alert('Thông tin đăng nhập', `Username: ${username}\nPassword: ${password}`);
-    console.log('Username:', username);
-    console.log('Password:', password);
   };
 
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" />
-
-      {/* Hình nền */}
       <ImageBackground
         source={require('./images/anhnen.jpg')}
         style={styles.background}
         resizeMode="cover"
       >
-
-        {/* Logo */}
-        <View style={styles.logoContainer}>
+        <View style={styles.centeredContent}>
+          {/* Logo */}
           <Image
             source={require('./images/pokemon.jpg')}
             style={styles.logo}
             resizeMode="contain"
           />
-        </View>
 
-        {/* Form login */}
-        <View style={styles.formContainer}>
-          <TextInput
-            style={styles.input}
-            placeholder="USERNAME"
-            placeholderTextColor="#555"
-            value={username}
-            onChangeText={setUsername}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="PASSWORD"
-            placeholderTextColor="#555"
-            secureTextEntry
-            value={password}
-            onChangeText={setPassword}
-          />
+          {/* Form login */}
+          <View style={styles.formContainer}>
+            <TextInput
+              style={styles.input}
+              placeholder="USERNAME"
+              placeholderTextColor="#555"
+              value={username}
+              onChangeText={setUsername}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="PASSWORD"
+              placeholderTextColor="#555"
+              secureTextEntry
+              value={password}
+              onChangeText={setPassword}
+            />
 
-          <TouchableOpacity style={styles.registerButton}>
-            <Text style={styles.registerText}>REGISTER</Text>
-          </TouchableOpacity>
+            <TouchableOpacity style={styles.registerButton}>
+              <Text style={styles.registerText}>REGISTER</Text>
+            </TouchableOpacity>
 
-          <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-            <Text style={styles.loginText}>LOGIN</Text>
-          </TouchableOpacity>
+            <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
+              <Text style={styles.loginText}>LOGIN</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </ImageBackground>
     </SafeAreaView>
@@ -80,19 +74,20 @@ const styles = StyleSheet.create({
   },
   background: {
     flex: 1,
-    justifyContent: 'flex-start',
   },
-  logoContainer: {
+  centeredContent: {
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 20,
+    paddingHorizontal: 30,
   },
   logo: {
-    width: '90%',
+    width: '100%',
     height: 150,
+    marginBottom: 20,
   },
   formContainer: {
-    marginTop: 20,
-    paddingHorizontal: 30,
+    width: '100%',
   },
   input: {
     height: 50,
